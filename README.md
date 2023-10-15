@@ -1,1 +1,1 @@
-Get browser notifications on fast crypto grow or fall
+A chrome extension for getting browser notifications on fast crypto price grow or fall
