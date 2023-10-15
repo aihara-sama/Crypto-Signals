@@ -1,0 +1,14 @@
+{
+    "name": "Crypto Siglnals",
+    "description": "Crypto Siglnals",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+      "default_popup": "index.html"
+    },
+    "permissions": ["notifications", "activeTab", "tabs", "scripting"],
+    "host_permissions": ["https://*/*"],
+    "background": {
+        "service_worker": "background.js"
+    }
+  }
