@@ -54,7 +54,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
             ((Math.max(...coins[name]) - Math.min(...coins[name])) /
               Math.min(...coins[name])) *
             100
-          ).toFixed(3)}%`;
+          ).toFixed(3)}% \n${lastAlertCoins[name]} - ${price}`;
           const url = `https://futures.mexc.com/exchange/${
             name === "LUNA"
               ? "LUNANEW"
@@ -74,10 +74,13 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
           coins[name] = [price];
         }
       });
+
       localStorage.setItem("lastAlertCoins", JSON.stringify(lastAlertCoins));
       localStorage.setItem("coins", JSON.stringify(coins));
     }
-
+    const avblBalanceEl = document.querySelector('.pages-contract-handle-component-assetsitem-num')
+    const avblBalance = Number.parseFloat(avblBalanceEl.textContent)
+    avblBalanceEl.setAttribute('title', `${((avblBalance-30)/30*100)}%`)
     return coins;
   }
 
